@@ -1,0 +1,18 @@
+{
+  "name": "Plugin Hook Example",
+  "shortName": "pluginhookexample",
+  "version": "0.0.1",
+  "author": "Daniel Hammerschmidt",
+  "description": "Example and template for usage of MeshCentral-PluginHookScheduler",
+  "hasAdminPanel": false,
+  "homepage": "https://github.com/bitctrl/MeshCentral-PluginHookExample",
+  "changelogUrl": "https://raw.githubusercontent.com/bitctrl/MeshCentral-PluginHookExample/main/CHANGELOG.md",
+  "configUrl": "https://raw.githubusercontent.com/bitctrl/MeshCentral-PluginHookExample/main/config.json",
+  "downloadUrl": "https://github.com/bitctrl/MeshCentral-PluginHookExample/archive/main.zip",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bitctrl/MeshCentral-PluginHookExample.git"
+  },
+  "versionHistoryUrl": "https://github.com/bitctrl/MeshCentral-PluginHookExample/tags",
+  "meshCentralCompat": ">=1.1.36"
+}
