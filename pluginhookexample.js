@@ -6,26 +6,24 @@
  * 
  * @author  Daniel Hammerschmidt <daniel.hammerschmidt@bitctrl.de>
  * @author  Daniel Hammerschmidt <daniel@redneck-engineering.com>
- * @version 0.0.1
+ * @version 0.0.1+wip
  *********************************************************************/
 
-const { getPluginShortName, getPluginConfig, requirePluginHooks } = require('../pluginhookscheduler');
-
-const PLUGIN_SHORT_NAME = getPluginShortName(__dirname);
-const pluginConfig = getPluginConfig(PLUGIN_SHORT_NAME, () => ({}));
-
-requirePluginHooks(
-  'hook_beforeCreateMeshAgent',
-  'hook_afterCreateMeshAgent',
-  'hook_beforeCreateMeshRelay',
-  'hook_afterCreateMeshRelay',
-  'hook_beforeCreateLocalRelay',
-  'hook_afterCreateLocalRelay',
-  'hook_beforeCreateMeshUser',
-  'hook_afterCreateMeshUser',
-  'hook_beforeNotifyUserOfDeviceStateChange',
-  'hook_afterNotifyUserOfDeviceStateChange',
-);
+const { PLUGIN_SHORT_NAME } = require('../pluginhookscheduler')({
+  __dirname,
+  requiredPluginHooks: [
+    'hook_beforeCreateMeshAgent',
+    'hook_afterCreateMeshAgent',
+    'hook_beforeCreateMeshRelay',
+    'hook_afterCreateMeshRelay',
+    'hook_beforeCreateLocalRelay',
+    'hook_afterCreateLocalRelay',
+    'hook_beforeCreateMeshUser',
+    'hook_afterCreateMeshUser',
+    'hook_beforeNotifyUserOfDeviceStateChange',
+    'hook_afterNotifyUserOfDeviceStateChange',  
+  ],
+});
 
 let meshserver, webserver;
 
