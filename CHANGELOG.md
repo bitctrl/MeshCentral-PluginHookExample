@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.0.3] - 2025-03-12
+### Added
+- include hook_agentWebSocketDisconnected
+
 ## [0.0.2] - 2025-03-12
 ### Added
 - example with fake-plugins

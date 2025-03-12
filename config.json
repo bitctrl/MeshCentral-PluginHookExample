@@ -1,7 +1,7 @@
 {
   "name": "Plugin Hook Example",
   "shortName": "pluginhookexample",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "Daniel Hammerschmidt",
   "description": "Example and template for usage of MeshCentral-PluginHookScheduler",
   "hasAdminPanel": false,

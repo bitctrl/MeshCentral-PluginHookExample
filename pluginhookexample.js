@@ -6,7 +6,7 @@
  * 
  * @author  Daniel Hammerschmidt <daniel.hammerschmidt@bitctrl.de>
  * @author  Daniel Hammerschmidt <daniel@redneck-engineering.com>
- * @version 0.0.2
+ * @version 0.0.3
  *********************************************************************/
 
 const { PLUGIN_SHORT_NAME } = require('../pluginhookscheduler')({
@@ -21,7 +21,8 @@ const { PLUGIN_SHORT_NAME } = require('../pluginhookscheduler')({
     'hook_beforeCreateMeshUser',
     'hook_afterCreateMeshUser',
     'hook_beforeNotifyUserOfDeviceStateChange',
-    'hook_afterNotifyUserOfDeviceStateChange',  
+    'hook_afterNotifyUserOfDeviceStateChange',
+    'hook_agentWebSocketDisconnected',
   ],
 });
 
@@ -117,14 +118,13 @@ module2.exports[PLUGIN_2_SHORT_NAME] = function (pluginHandler) {
       console.log(new Date().toISOString(), 'hook_beforeCreateMeshAgent', req.url, req.socket.remotePort);
     },
     hook_afterCreateMeshAgent(meshagent, parent, db, ws, req, args, domain) {
-      ws.on('close', pluginHandler.callHook.bind(pluginHandler, 'hook_agentDisconnected', meshagent));
       return console.log(new Date().toISOString(), 'hook_afterCreateMeshAgent', encodeURIComponent(meshagent.nonce).slice(0, 24)), meshagent;
     },
     hook_agentCoreIsStable(meshagent) {
       console.log(new Date().toISOString(), 'hook_agentCoreIsStable', meshagent.agentName ?? meshagent.name ?? meshagent.nodeid );
     },
-    hook_agentDisconnected(meshagent) {
-      console.log(new Date().toISOString(), 'hook_agentDisconnected', meshagent.agentName ?? meshagent.name ?? meshagent.nodeid );
+    hook_agentWebSocketDisconnected(meshagent) {
+      console.log(new Date().toISOString(), 'hook_agentWebSocketDisconnected', meshagent.agentName ?? meshagent.name ?? meshagent.nodeid );
     },
     hook_beforeCreateMeshRelay(parent, ws, req, domain, user, cookie) {
       console.log(new Date().toISOString(), 'hook_beforeCreateMeshRelay', req.url);
